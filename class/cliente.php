@@ -425,7 +425,7 @@ class cliente {
                   //echo "is between -> $meses -> $diasMeses<br>";
                 }
 
-                $valorDia = ($paq["valor"] * ( $paq["rentabilidad"] / 100 ) ) / 20;
+                $valorDia = ($paq["valor_paquete"] * ( $paq["rentabilidad"] / 100 ) ) / 20;
                 $this->gananciasInversion += ($valorDia * $dias);
 
                 $this->gananciasPorPaquete[$k] = $paq;
@@ -1221,7 +1221,7 @@ class cliente {
                                           ' hasta <b>COP $ '.number_format(6000000, 0, "", ".").' </b>a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
-                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue"></div>'.
+                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$300.000 - COP$6.000.000" min="300000" max="5999999"></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
 
@@ -1230,7 +1230,7 @@ class cliente {
                                           ' hasta <b>COP $ '.number_format(6000000, 0, "", ".").' </b> a la siguiente cuenta de ahorros de Bancolombia. Tambien puedes realizar una transferencia desde tu app movil de Bancolombia por medio del siguiente codigo QR: </p><br><div style="text-align:center;">'.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>Ahorros xxxx-xxxxxxx</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
-                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBancoValue" id="transaccionBancoValue"></div>'.
+                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBancoValue" id="transaccionBancoValue" placeholder="COP$300.000 - COP$6.000.000" min="300000" max="5999999"></div>'.
                                           'Despues de realizar la consignacion ingrese el codigo de la transferencia y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBanco" id="transaccionBanco"></div></p></div>'.
 
@@ -1261,7 +1261,7 @@ class cliente {
                                           ' hasta <b>COP $ '.number_format(15000000, 0, "", ".").' </b> a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
-                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$6.000.000 - COP$15.000.000"></div>'.
+                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$6.000.000 - COP$15.000.000" min="6000000" max="14999999"></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
 
@@ -1301,7 +1301,7 @@ class cliente {
                                           '  a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
-                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$15.000.000 o mas"></div>'.
+                                          '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$15.000.000 o mas" ></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
 
@@ -1374,7 +1374,7 @@ class cliente {
                 $dias = 0;
                 $actualDate = date('Y-m-d'); // ." -> ".$paq["inicia"]." -> ".$paq["finaliza"];
                 
-                $title = "Ganancias de su paquete ".$paq["nombre"]." de USD$ ". number_format($paq["valor"], 0, "", ".")." con vigencia ".date("d/m/Y", strtotime($paq["inicia"]))." - ".date("d/m/Y", strtotime($paq["finaliza"]));
+                $title = "Ganancias de su paquete ".$paq["nombre"]." de COP $ ". number_format($paq["valor_paquete"], 0, "", ".")." con vigencia ".date("d/m/Y", strtotime($paq["inicia"]))." - ".date("d/m/Y", strtotime($paq["finaliza"]));
                 /*$initDate = date('Y-m-d', strtotime($paq["inicia"]));
                 $finishDate = date('Y-m-d', strtotime($paq["finaliza"]));
 
@@ -1409,7 +1409,7 @@ class cliente {
                   //echo "is between -> $meses -> $diasMeses<br>";
                 //}
 
-                $valorDia = ($paq["valor"] * ( $paq["rentabilidad"] / 100 ) ) / 20;
+                $valorDia = ($paq["valor_paquete"] * ( $paq["rentabilidad"] / 100 ) ) / 20;
                 /*$this->gananciasInversion += ($valorDia * $dias);
 
                 $this->gananciasPorPaquete[$k] = $paq;

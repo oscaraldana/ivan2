@@ -331,10 +331,10 @@ span.exmple:hover{
                 if ( $paq["estado"] == 1 ){
                     
                     echo "<tr><td>".$paq["nombre"]."</td><td>".date("d/m/Y", strtotime($paq["fecha_registro"]))."</td>";
-                    echo "<td>".$paq["valor"]."</td>";
+                    echo "<td style='text-align:right'>COP $".number_format($paq["valor_paquete"], 0, ',', '.' )."</td>";
                     echo "<td>".date("d/m/Y", strtotime($paq["inicia"]))."</td>";
                     echo "<td>".date("d/m/Y", strtotime($paq["finaliza"]))."</td>";
-                    echo "<td style='text-align:right;' class='href'><span class='exmple' onclick='detallarGanancias(".$paq["paquete_cliente_id"].")'>USD$ ".$paq["ganancia"]."</span></td>";
+                    echo "<td style='text-align:right;' class='href'><span class='exmple' onclick='detallarGanancias(".$paq["paquete_cliente_id"].")'>COP $ ".number_format($paq["ganancia"], 0, ',', '.' )."</span></td>";
                     echo '<td><div id="reloj_'.$paq["paquete_cliente_id"].'" class="reloj">
                             <div> <div class="texto">Días</div> <span class="dias" id="dias_'.$paq["paquete_cliente_id"].'"></span> </div>
                             <div> <div class="texto">Horas</div> <span class="horas" id="horas_'.$paq["paquete_cliente_id"].'"></span> </div>
