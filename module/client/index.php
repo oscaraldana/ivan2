@@ -21,154 +21,96 @@ $conex = WolfConex::conex();
 
 if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_SESSION["clientId"]) ) ) {
 //include_once '../../header_only.php';    
-    ?> 
-<!-- Bootstrap CSS 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  
-  
-<link href="../../css/client.css" rel="stylesheet" id="client-css">
--->
+    ?> <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V15</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+                                    	<span class="login100-form-title-1">
+						Ingresar a mi cuenta
+					</span>
+                                    
+				</div>
+<span style="float: right; margin-right: 20px;"><a href="../" class="txt1">Regresar</a></span>
+				<form class="login100-form validate-form" onsubmit="login(); return false;">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Nombre de usuario es requerido">
+						<span class="label-input100">Usuario:</span>
+						<input class="input100" type="text" name="user_login" id="user_login" placeholder="Nombre de usuario">
+						<span class="focus-input100"></span>
+					</div>
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <!-- font icon -->
-  <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="css/font-awesome.css" rel="stylesheet" />
-  <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet" />
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Contraseña es requerida">
+						<span class="label-input100">Contraseña</span>
+						<input class="input100" type="password" name="pass_login" id="pass_login" placeholder="Contraseña">
+						<span class="focus-input100"></span>
+					</div>
 
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+                                                    <a href="javascript:;" onclick="formOlvidoClave();" class="txt1">
+								Olvide mi contraseña
+							</a>
+						</div>
 
-<style>
-    body{
-        background-color: #262b2d;
-    }
+						<div>
+                                                    <a href="javascript:;" onclick="registro();" class="txt1">
+								Registrarme
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Entrar
+						</button>
+                                            
+					</div>
+                                    
+				</form>
+                            
+			</div>
+		</div>
+	</div>
+	
     
-    body::after {
-             content: "";
-             background: url(../../images/wolvess.jpeg);
-             background-repeat:no-repeat;
-             background-size: cover;
-             opacity: 0.2;
-             top: 0;
-             left: 0;
-             bottom: 0;
-             right: 0;
-             position: absolute;
-             z-index: -1;   
-           }  
-           
-           
-/* Radio button */
-.radiobtn {
-  display: none;
-}
-.buttons {
-  margin-left: -40px;
-}
-.buttons li {
-    padding-left: 30px;
-  display: block;
-}
-.buttons li label{
-  padding-left: 30px;
-  position: relative;
-  left: -25px;
-}
-.buttons li label:hover {
-  cursor: pointer;
-}
-.buttons li span {
-  display: inline-block;
-  position: relative;
-  top: 5px;
-  border: 2px solid #999;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-}
-.radiobtn:checked + span::before{
-  content: '';
-  border: 2px solid #fff;
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background-color:  #2b58c0;
-}   
-           
-</style>
-
-
-<div class="container">
-<br><br><span style="float: right; margin-right: 20px;"><a href="../">Volver</a></span>
-<br><br>
-<h3 class="text-center login-title"><?= $lang["client_login_tittle"] ?></h3>
-    <form class="login-form" onsubmit="login(); return false;">
-      <div class="login-wrap">
-        <p class="login-img"><i class="icon_lock_alt"></i></p>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Usuario" autofocus id="user_login" name="user_login" required="true">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" placeholder="Contrase&ntilde;a" id="pass_login" name="pass_login" required="true">
-        </div>
-        <label class="checkbox">
-                <!-- <input type="checkbox" value="remember-me"> Remember me -->
-            <span class="pull-right"><a href="javascript:;" class="btn-link" onclick="formOlvidoClave();">&iquest;Olvido su contrase&ntilde;a?</a></span>
-            </label>
-        <br>
-        <button class="btn btn-logg btn-lg btn-block" type="submit">Ingresar</button>
-        <p class="btn btn-regg btn-lg btn-block" onclick="registro()">Registrarme</p>
-      </div>
-    </form>
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          
-          <a href="javascript:;">Derechos reservados</a>
-          -->
-        </div>
-    </div>
-  </div>
-
-
-
-
-
-<!--
-<br>
-<span style="float: right; margin-right: 20px;"><a href="../">Volver</a></span>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title"><?= $lang["client_login_tittle"] ?></h1>
-            <div class="account-wall">
-                <img class="profile-img" src="../../images/wolvess.jpeg"  alt="">
-                <form class="form-signin" onsubmit="login(); return false;">
-                    <input type="text" id="user_login" name="user_login" required="" class="form-control" placeholder="<?= $lang["login_user"] ?>" autofocus>
-                    <input type="password"  id="pass_login"  name="pass_login" required="" class="form-control" placeholder="<?= $lang["login_passwd"] ?>" >
-                <button class="btn btn-lg btn-primary btn-block" ><?= $lang["login_entrar"] ?></button>
-                
-                </form>
-            </div>
-            <span width="100%" style="border: #ffff33 ">¿No tienes una cuenta?</span> <a href="javascript:;" onclick="registro()" class="right text-right bg-primary">Registrate</a>
-        </div>
-    </div>
-</div>
--->
-
+    
+    
 <!-- Modal -->
 <div id="modalBuy" class="modal fade"  role="dialog" style="display: none">
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content" style="background-color: #262b2d;">
+    <div class="modal-content">
         <form id="form_registro" name="form_registro" method="post" enctype="multipart/form-data"
             action="controller.php"
             target="iframeUpload">
@@ -186,17 +128,14 @@ if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_
     </div>
 
   </div>
-</div>
-
-
-
-
-<!-- Modal -->
+</div>    
+    
+    <!-- Modal -->
 <div id="modalx" class="modal fade"  role="dialog" style="display: none">
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content" style="background-color: #262b2d;">
+    <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" name="modal-titlex" id="modal-titlex">Modal Header</h4>
@@ -211,19 +150,27 @@ if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_
 
   </div>
 </div>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+        <script src="js/clientes.js"></script>
+        <script src="js/sweetalert.min.js"></script>
 
-
-<style>
-    
-    
-    
-</style>
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/clientes.js"></script>
-<script src="js/sweetalert.min.js"></script>
-
+</body>
+</html>
 <?php } else {
 
     include_once './dashboard.php';

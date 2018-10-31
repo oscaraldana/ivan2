@@ -737,7 +737,7 @@ function validarCuentasBancarias(id){
 }
 
 function formOlvidoClave () {
-    
+    alert(132);
     $("#modal-titlex").html("Olvide mi contrase&ntilde;a");
     $("#modal-bodyx").html("<br><br>"+
                            "<br><label for='userl'><i class='icon_profile'></i> Usuario de acceso</label><input type='text' class='form-control' placeholder='Digite su usuario' name='userl' id='userl' required><br>&nbsp;");
@@ -909,7 +909,7 @@ function initializeReloj(id, endtime, cod, iniline) {
  }
 
 
-$("#number").on({
+$(".number").on({
     "focus": function (event) {
         $(event.target).select();
     },
