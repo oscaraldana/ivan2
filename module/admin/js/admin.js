@@ -95,7 +95,7 @@ function editarPaquete (id) {
                                 $("#modal-body").html("<form onsubmit='return false;' id='formactpaq' ><table class='table'>"+
                                                       "<tr><td>Cliente:</td><td class='text-right'>"+result.datos.nombre+"<td></tr>"+
                                                       "<tr><td>Paquete:</td><td class='text-right'>"+result.datos.paquete+"<td></tr>"+
-                                                      "<tr><td>Valor:</td><td class='text-right'>US$ <input type='text' value='"+result.datos.valor+"'><b><b><td></tr>"+
+                                                      "<tr><td>Valor:</td><td class='text-right'>COP $ <input type='text' value='"+result.datos.valor+"' style='text-align:right;' name='valorPaqAprobar' id='valorPaqAprobar' class='money'><td></tr>"+
                                                       "<tr><td>Fecha de compra:</td><td class='text-right'>"+result.datos.fecha_registro+"<td></tr>"+
                                                       "<tr><td>Tipo de pago:</td><td class='text-right'>"+result.datos.tipo_pago+"<td></tr>"+
                                                       "<tr><td>Referencia Pago:</td><td class='text-right'>"+result.datos.referencia_pago+"<td></tr>"+
@@ -108,7 +108,7 @@ function editarPaquete (id) {
                                                      );
                                 $("#modal-footer").html('<input type="submit" class="btn btn-logg" style="font-size: 10px;" value="Guardar" onclick="modificarPaquete()"><button type="button" class="btn btn-default" data-dismiss="modal" style="font-size: 10px;">Cancelar</button>');           
                                 $("#modalPaq").modal();
-    
+                                $('.money').mask('000.000.000.000.000', {reverse: true});
                             } else {
                                 swal(result.msg);
                             }
@@ -240,3 +240,15 @@ function modificarRetiro(){
     });
 }
 
+$(".number").on({
+    "focus": function (event) {
+        $(event.target).select();
+    },
+    "keyup": function (event) {
+        $(event.target).val(function (index, value ) {
+            return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        });
+    }
+});

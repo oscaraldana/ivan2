@@ -370,14 +370,15 @@ class admin {
     
 
     public function actualizarPaquete ( $dataPost ) {
-        
+            
         if ( $dataPost["selectEstado"] == "1" && ( empty($dataPost["datefecinipaq"]) || empty($dataPost["datefecfinpaq"]) ) ) {
             echo json_encode( ["respuesta" => false, "error" => 3, "msg" => "Por favor seleccione las fechas de vigencia del paquete." ] );
             return;
         }
         
-        $conex = WolfConex::conex();
         
+        $conex = WolfConex::conex();
+        //intval(str_replace(".", "", $dataPost["valorPaqAprobar"]))
         // Consultamos el estado actual del paquete
         $sql = "select paquetes_cliente.*, paquetes.valor 
                 from paquetes_cliente 
@@ -386,7 +387,10 @@ class admin {
         $res = mysqli_query($conex->getLinkConnect(), $sql);
         $paqAct = mysqli_fetch_array($res);
         
-        $sql = "update paquetes_cliente set estado = '".$dataPost["selectEstado"]."', fecha_activacion = now(), inicia = '".$dataPost["datefecinipaq"]."', finaliza = '".$dataPost["datefecfinpaq"]."' where paquete_cliente_id = ".$dataPost["paquete_id"];
+        $sql = "update paquetes_cliente set estado = '".$dataPost["selectEstado"]."', fecha_activacion = now(), "
+                . "inicia = '".$dataPost["datefecinipaq"]."', finaliza = '".$dataPost["datefecfinpaq"]."', "
+                . "valor_paquete = ".intval(str_replace(".", "", $dataPost["valorPaqAprobar"]))
+                . " WHERE paquete_cliente_id = ".$dataPost["paquete_id"];
         $result = mysqli_query($conex->getLinkConnect(), $sql);
         if ( !$result ) {
             //echo "<script>parent.sweetal(\"No es posible actualizar tu perfil en este momento.\");</script>";
