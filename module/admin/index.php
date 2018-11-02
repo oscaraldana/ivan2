@@ -24,6 +24,6 @@ if ( (!isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($
 
 <?php } else {
 
-    include_once './dashboard_1.php';
+    include_once './dashboard.php';
     
 }

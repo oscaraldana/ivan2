@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Alianza Nuevo Mundo</title>
+  <title>Administrador</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -17,45 +17,6 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-      <!-- Bootstrap CSS -->
-  <link href="../client/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../client/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-  <style>
-         
-           
-           
- .reloj{
- font-family: sans-serif;
- color: #fff;
- display: inline-block;
- font-weight: 100;
- text-align: center;
- font-size: 10px;
-}
- 
-.reloj > div{
-    padding: 5px;
-    border-radius: 3px;
-    background: #999999;
-    display: inline-block;
- 
-}
- 
-.reloj div > span{
-    padding: 5px;
-    border-radius: 3px;
-    background: rgba(57, 68, 84, 0.27);
-    display: inline-block;
-}
-
-span.exmple{
-    font-weight: bold;
-    cursor: pointer;
-}
-span.exmple:hover{
-    color: #171;
-}
-  </style>
 </head>
 
 <body>
@@ -63,15 +24,16 @@ span.exmple:hover{
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="index.php">
           <img src="images/logo.svg" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <a class="navbar-brand brand-logo-mini" href="index.php">
           <img src="images/logo-mini.svg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        <!-- <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <!--
+          <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
           <li class="nav-item">
             <a href="#" class="nav-link">Schedule
               <span class="badge badge-primary ml-1">New</span>
@@ -87,7 +49,7 @@ span.exmple:hover{
           </li>
         </ul> -->
         <ul class="navbar-nav navbar-nav-right">
-          <!-- <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-file-document-box"></i>
               <span class="count">7</span>
@@ -141,7 +103,7 @@ span.exmple:hover{
                 </div>
               </a>
             </div>
-          </li> 
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-bell"></i>
@@ -196,14 +158,30 @@ span.exmple:hover{
                 </div>
               </a>
             </div>
-          </li> -->
+          </li>
+          -->
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hola, <?php echo $_SESSION["clientNombre"] ?>!</span>
-              <img class="img-xs rounded-circle" src="img/clients/<?php echo (isset($_SESSION["clientImg"]) && !empty($_SESSION["clientImg"]) && file_exists("img/clients/".$_SESSION["clientImg"]) ) ? $_SESSION["clientImg"] : "default-user.png" ?>" alt="Profile image">
+            <?php 
+            if( isset($_SESSION["clientId"]) && !empty($_SESSION["clientId"])) { ?>
+                <span class="profile-text">Hola, <?=$_SESSION["clientNombre"]?>!</span>
+            <?php    if (isset($_SESSION["clientImg"]) && !empty($_SESSION["clientImg"]) && file_exists("../client/img/clients/".$_SESSION["clientImg"]) ){ ?>
+                    <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image">
+                <?php 
+                } else {
+                    echo '<img class="img-xs rounded-circle" src="img/clients/default-user.png" alt="Profile image">';
+                }
+            } else { ?>
+                echo '<img alt="" src="img/clients/default-user.png" height="43px" id="imgPerfil" name="imgPerfil">';
+            <?php }
+            ?>
+
+                
+                
+              
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <!--<a class="dropdown-item p-0">
+              <!-- <a class="dropdown-item p-0">
                 <div class="d-flex border-bottom">
                   <div class="py-3 px-4 d-flex align-items-center justify-content-center">
                     <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
@@ -215,24 +193,25 @@ span.exmple:hover{
                     <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
                   </div>
                 </div>
-              </a>-->
-              <a class="dropdown-item mt-2" onclick="miperfil()">
-                <i class="menu-icon mdi mdi-account"></i> Mi Perfil
+              </a> -->
+              
+              <a class="dropdown-item mt-2" href="javascript:;" onclick="miperfil()">
+                Mi Perfil
               </a>
-              <a class="dropdown-item" onclick="cambiarContra()">
-                <i class="menu-icon mdi mdi-key-variant"></i>Cambiar Contraseña
+              <a class="dropdown-item" href="javascript:;" onclick="cambiarContra()"><i class="fa fa-address-book-o"></i>
+                Cambiar Contraseña
               </a>
-              <a class="dropdown-item" onclick="logout()">
-                <i class="menu-icon mdi mdi-logout"></i>Salir
+              <a class="dropdown-item" href="javascript:;" onclick="logout()">
+                Salir
               </a>
             </div>
           </li>
         </ul>
+        
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
-        
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -243,133 +222,151 @@ span.exmple:hover{
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="img/clients/<?php echo (isset($_SESSION["clientImg"]) && !empty($_SESSION["clientImg"]) && file_exists("img/clients/".$_SESSION["clientImg"]) ) ? $_SESSION["clientImg"] : "default-user.png" ?>" alt="profile image">
+                  <img src="images/faces/face1.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name"><?php echo $_SESSION["clientNombre"] ; ?></p>
+                  <p class="profile-name">Richard V.Welsh</p>
                   <div>
-                    <small class="designation text-muted"><?php echo ( isset($_SESSION["clientIsAdmin"]) && $_SESSION["clientIsAdmin"] == "1" ) ? "Administrador" : "Inversionista" ?></small>
+                    <small class="designation text-muted">Manager</small>
                     <span class="status-indicator online"></span>
                   </div>
-                </div> 
+                </div>
               </div>
-              <!--<button class="btn btn-success btn-block">New Project
+              <button class="btn btn-success btn-block">New Project
                 <i class="mdi mdi-plus"></i>
-              </button> -->
+              </button>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../client/">
-              <i class="menu-icon mdi mdi-home"></i>
-              <span class="menu-title">Inicio</span>
+            <a class="nav-link" href="index.html">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-bitcoin"></i>
-              <span class="menu-title">Transacciones</span>
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Basic UI Elements</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:;" onclick="cargarHtml('comprar');">Comprar Paquetes</a>
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:;" onclick="cargarHtml('retirar');">Retiros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="javascript:;" onclick="cargarHtml('histocompras');">Historial de Compra</a>
+                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="javascript:;" onclick="cargarHtml('cuentabancaria');">
-              <i class="menu-icon mdi mdi-numeric"></i>
-              <span class="menu-title">Mis Cuentas</span>
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <span class="menu-title">Form elements</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="javascript:;" onclick="cargarHtml('referidos');">
-              <i class="menu-icon mdi mdi-account-multiple-plus"></i>
-              <span class="menu-title">Mis Referidos</span>
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Charts</span>
             </a>
           </li>
-          <?php if ( isset($_SESSION["clientIsAdmin"]) && $_SESSION["clientIsAdmin"] ) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="../admin">
-              <i class="menu-icon mdi mdi-account-settings-variant"></i>
-              <span class="menu-title">Modulo Admin</span>
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Tables</span>
             </a>
           </li>
-          <?php } ?>        
-          
+          <li class="nav-item">
+            <a class="nav-link" href="pages/icons/font-awesome.html">
+              <i class="menu-icon mdi mdi-sticker"></i>
+              <span class="menu-title">Icons</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-restart"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/register.html"> Register </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
-      
-      
-      <?php
-        
-        $cliente = new cliente();
-        
-        $cliente->consultarGanancias();
-        $cliente->consultarRetiros(1);
-        
-        $restar = 0;
-        foreach ($cliente->misRetiros as $ret) {
-            if ( $ret["estado"] == 1 ) {
-                $restar += $ret["valor_retiro"];
-            }
-        }
-        
-        ?>
       <!-- partial -->
-      <div class="main-panel"  id="homeContent" name="homeContent">
+      <div class="main-panel">
         <div class="content-wrapper">
-          Mis Ganancias
+          <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex align-items-center">
+                <p>Like what you see? Check out our premium version for more.</p>
+                <a class="btn ml-auto download-button d-none d-md-block" href="https://github.com/BootstrapDash/StarAdmin-Free-Bootstrap-Admin-Template" target="_blank">Download Free Version</a>
+                <a class="btn purchase-button mt-4 mt-md-0" href="https://www.bootstrapdash.com/product/star-admin-pro/" target="_blank">Upgrade To Pro</a>
+                <i class="mdi mdi-close popup-dismiss d-none d-md-block"></i>
+              </span>
+            </div>
+          </div>
           <div class="row">
-            <div class="col-xl-4 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="mdi mdi-cash-multiple text-warning icon-lg"></i>
+                      <i class="mdi mdi-cube text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Por Inversion</p>
+                      <p class="mb-0 text-right">Total Revenue</p>
                       <div class="fluid-container">
-                          <h3 class="font-weight-medium text-right mb-0">$ <?php echo number_format(($cliente->gananciasInversion - $restar), 0, ',', '.'); ?></h3>
+                        <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
                       </div>
                     </div>
                   </div>
-                  <!--<p class="text-muted mt-3 mb-0">
+                  <p class="text-muted mt-3 mb-0">
                     <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
-                  </p>-->
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="mdi mdi-account-multiple text-warning icon-lg"></i>
+                      <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Por Referidos</p>
+                      <p class="mb-0 text-right">Orders</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">$ <?php echo number_format(($cliente->gananciasReferidos), 0, ',', '.'); ?></h3>
+                        <h3 class="font-weight-medium text-right mb-0">3455</h3>
                       </div>
                     </div>
                   </div>
-                  <!--<p class="text-muted mt-3 mb-0">
+                  <p class="text-muted mt-3 mb-0">
                     <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
-                  </p>-->
+                  </p>
                 </div>
               </div>
             </div>
-            <!--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
                 <div class="card-body">
                   <div class="clearfix">
@@ -379,7 +376,7 @@ span.exmple:hover{
                     <div class="float-right">
                       <p class="mb-0 text-right">Sales</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">$ 2.000.000</h3>
+                        <h3 class="font-weight-medium text-right mb-0">5693</h3>
                       </div>
                     </div>
                   </div>
@@ -408,55 +405,346 @@ span.exmple:hover{
                   </p>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
-          
-           <div class="row">
-          <?php
-        
-        //$misPaq = $cliente->consultarPaquetesCliente( [ "orden" => "fecha_registro asc"] );
-        $script = "";
-        
-        if ( is_array($cliente->gananciasPorPaquete) && count($cliente->gananciasPorPaquete) > 0  ) {
-            
-            echo "<table class='table'>";
-            
-            echo "<tr><th>PAQUETE</th><th>FECHA COMPRA</th><th>VALOR PAQUETE</th><th>FECHA INICIO</th><th>FECHA FIN</th><th>GANANCIAS</th><th>VIGENCIA</th></tr>";
-            
-            foreach ( $cliente->gananciasPorPaquete as $paq ) { 
-
-                if ( $paq["estado"] == 1 ){
-                    
-                    echo "<tr><td>".$paq["nombre"]."</td><td>".date("d/m/Y", strtotime($paq["fecha_registro"]))."</td>";
-                    echo "<td style='text-align:right'>COP $".number_format($paq["valor_paquete"], 0, ',', '.' )."</td>";
-                    echo "<td>".date("d/m/Y", strtotime($paq["inicia"]))."</td>";
-                    echo "<td>".date("d/m/Y", strtotime($paq["finaliza"]))."</td>";
-                    echo "<td style='text-align:right;' class='href'><span class='exmple' onclick='detallarGanancias(".$paq["paquete_cliente_id"].")'>COP $ ".number_format($paq["ganancia"], 0, ',', '.' )."</span></td>";
-                    echo '<td><div id="reloj_'.$paq["paquete_cliente_id"].'" class="reloj">
-                            <div> <div class="texto">Días</div> <span class="dias" id="dias_'.$paq["paquete_cliente_id"].'"></span> </div>
-                            <div> <div class="texto">Horas</div> <span class="horas" id="horas_'.$paq["paquete_cliente_id"].'"></span> </div>
-                            <div> <div class="texto">Minutos</div> <span class="minutos" id="minutos_'.$paq["paquete_cliente_id"].'"></span> </div>
-                            <div> <div class="texto">Segundos</div> <span class="segundos" id="segundos_'.$paq["paquete_cliente_id"].'"></span> </div>
-                        </div></td>';
-                    echo "</tr>";
-                    $script .= "
-                            var deadline_".$paq["paquete_cliente_id"]." = new Date('".date("m/d/Y", strtotime($paq["finaliza"]))."');
-                            var iniline_".$paq["paquete_cliente_id"]." = new Date('".date("m/d/Y", strtotime($paq["inicia"]))."');
-                            initializeReloj('reloj_".$paq["paquete_cliente_id"]."', deadline_".$paq["paquete_cliente_id"].", ".$paq["paquete_cliente_id"].", iniline_".$paq["paquete_cliente_id"].");
-                         
-                         ";
-                }
-                
-
-            }
-            
-            echo "</table>";
-        }
-        
-        ?>
-           </div>
-          
-          <!--
+          <div class="row">
+            <div class="col-lg-7 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body">
+                  <div class="weather-date-location">
+                    <h3>Monday</h3>
+                    <p class="text-gray">
+                      <span class="weather-date">25 October, 2016</span>
+                      <span class="weather-location">London, UK</span>
+                    </p>
+                  </div>
+                  <div class="weather-data d-flex">
+                    <div class="mr-auto">
+                      <h4 class="display-3">21
+                        <span class="symbol">&deg;</span>C</h4>
+                      <p>
+                        Mostly Cloudy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="d-flex weakly-weather">
+                    <div class="weakly-weather-item">
+                      <p class="mb-0">
+                        Sun
+                      </p>
+                      <i class="mdi mdi-weather-cloudy"></i>
+                      <p class="mb-0">
+                        30°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Mon
+                      </p>
+                      <i class="mdi mdi-weather-hail"></i>
+                      <p class="mb-0">
+                        31°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Tue
+                      </p>
+                      <i class="mdi mdi-weather-partlycloudy"></i>
+                      <p class="mb-0">
+                        28°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Wed
+                      </p>
+                      <i class="mdi mdi-weather-pouring"></i>
+                      <p class="mb-0">
+                        30°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Thu
+                      </p>
+                      <i class="mdi mdi-weather-pouring"></i>
+                      <p class="mb-0">
+                        29°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Fri
+                      </p>
+                      <i class="mdi mdi-weather-snowy-rainy"></i>
+                      <p class="mb-0">
+                        31°
+                      </p>
+                    </div>
+                    <div class="weakly-weather-item">
+                      <p class="mb-1">
+                        Sat
+                      </p>
+                      <i class="mdi mdi-weather-snowy"></i>
+                      <p class="mb-0">
+                        32°
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--weather card ends-->
+            </div>
+            <div class="col-lg-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title text-primary mb-5">Performance History</h2>
+                  <div class="wrapper d-flex justify-content-between">
+                    <div class="side-left">
+                      <p class="mb-2">The best performance</p>
+                      <p class="display-3 mb-4 font-weight-light">+45.2%</p>
+                    </div>
+                    <div class="side-right">
+                      <small class="text-muted">2017</small>
+                    </div>
+                  </div>
+                  <div class="wrapper d-flex justify-content-between">
+                    <div class="side-left">
+                      <p class="mb-2">Worst performance</p>
+                      <p class="display-3 mb-5 font-weight-light">-35.3%</p>
+                    </div>
+                    <div class="side-right">
+                      <small class="text-muted">2015</small>
+                    </div>
+                  </div>
+                  <div class="wrapper">
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Sales</p>
+                      <p class="mb-2 text-primary">88%</p>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 88%" aria-valuenow="88"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="wrapper mt-4">
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Visits</p>
+                      <p class="mb-2 text-success">56%</p>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 56%" aria-valuenow="56"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row d-none d-sm-flex mb-4">
+                    <div class="col-4">
+                      <h5 class="text-primary">Unique Visitors</h5>
+                      <p>34657</p>
+                    </div>
+                    <div class="col-4">
+                      <h5 class="text-primary">Bounce Rate</h5>
+                      <p>45673</p>
+                    </div>
+                    <div class="col-4">
+                      <h5 class="text-primary">Active session</h5>
+                      <p>45673</p>
+                    </div>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="dashboard-area-chart" height="80"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Orders</h4>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>
+                            First name
+                          </th>
+                          <th>
+                            Progress
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>
+                            Sales
+                          </th>
+                          <th>
+                            Deadline
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="font-weight-medium">
+                            1
+                          </td>
+                          <td>
+                            Herman Beck
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $ 77.99
+                          </td>
+                          <td class="text-danger"> 53.64%
+                            <i class="mdi mdi-arrow-down"></i>
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-weight-medium">
+                            2
+                          </td>
+                          <td>
+                            Messsy Adam
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $245.30
+                          </td>
+                          <td class="text-success"> 24.56%
+                            <i class="mdi mdi-arrow-up"></i>
+                          </td>
+                          <td>
+                            July 1, 2015
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-weight-medium">
+                            3
+                          </td>
+                          <td>
+                            John Richards
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $138.00
+                          </td>
+                          <td class="text-danger"> 28.76%
+                            <i class="mdi mdi-arrow-down"></i>
+                          </td>
+                          <td>
+                            Apr 12, 2015
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-weight-medium">
+                            4
+                          </td>
+                          <td>
+                            Peter Meggik
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $ 77.99
+                          </td>
+                          <td class="text-danger"> 53.45%
+                            <i class="mdi mdi-arrow-down"></i>
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-weight-medium">
+                            5
+                          </td>
+                          <td>
+                            Edward
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $ 160.25
+                          </td>
+                          <td class="text-success"> 18.32%
+                            <i class="mdi mdi-arrow-up"></i>
+                          </td>
+                          <td>
+                            May 03, 2015
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="font-weight-medium">
+                            6
+                          </td>
+                          <td>
+                            Henry Tom
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $ 150.00
+                          </td>
+                          <td class="text-danger"> 24.67%
+                            <i class="mdi mdi-arrow-down"></i>
+                          </td>
+                          <td>
+                            June 16, 2015
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12 grid-margin">
               <div class="card">
@@ -595,17 +883,16 @@ span.exmple:hover{
               </div>
             </div>
           </div>
-          -->
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="#" >Alianza Nuevo Mundo</a>. All rights reserved.</span>
-            <!--<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
               <i class="mdi mdi-heart text-danger"></i>
-            </span> -->
+            </span>
           </div>
         </footer>
         <!-- partial -->
@@ -616,43 +903,10 @@ span.exmple:hover{
   </div>
   <!-- container-scroller -->
 
-  
-  
-  
-  
-    <!-- Modal -->
-<div id="modalClient" class="modal fade"  role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" >
-        <form  id="form_modal" name="form_modal" onsubmit="return false;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" name="modal-title" id="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body" id="modal-body" name="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer" id="modal-footer" name="modal-footer">
-        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-      </div>
-        </form>
-    </div>
-
-  </div>
-</div>
-  
-  
-  
-  
-  
-  
-  
   <!-- plugins:js -->
-  
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
@@ -663,18 +917,6 @@ span.exmple:hover{
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui-1.10.4.min.js"></script>
-  <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-  <!-- bootstrap -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/clientes.js?v=<?php echo time();?>"></script>
-
-  <script>
-    $( document ).ready(function() {
-        <?= $script ?>
-    });
-  </script>
 </body>
 
 </html>
