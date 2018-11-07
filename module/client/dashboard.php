@@ -16,7 +16,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="icon" type="image/png" href="../../images/lion.ico"/>
       <!-- Bootstrap CSS -->
   <link href="../client/css/bootstrap.min.css" rel="stylesheet">
   <link href="../client/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
@@ -239,7 +239,7 @@ span.exmple:hover{
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item nav-profile">
+         <!-- <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
@@ -255,9 +255,9 @@ span.exmple:hover{
               </div>
               <!--<button class="btn btn-success btn-block">New Project
                 <i class="mdi mdi-plus"></i>
-              </button> -->
+              </button> 
             </div>
-          </li>
+          </li>-->
           <li class="nav-item">
             <a class="nav-link" href="../client/">
               <i class="menu-icon mdi mdi-home"></i>

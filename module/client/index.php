@@ -24,7 +24,7 @@ if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_
     ?> <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V15</title>
+	<title>Ingresar a mi cuenta</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -56,9 +56,9 @@ if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
-                                    	<span class="login100-form-title-1">
+                                    	<!--<span class="login100-form-title-1">
 						Ingresar a mi cuenta
-					</span>
+					</span>-->
                                     
 				</div>
 <span style="float: right; margin-right: 20px;"><a href="../" class="txt1">Regresar</a></span>
