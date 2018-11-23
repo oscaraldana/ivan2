@@ -266,7 +266,7 @@ span.exmple:hover{
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-bitcoin"></i>
+              <i class="menu-icon mdi mdi-coin"></i>
               <span class="menu-title">Transacciones</span>
               <i class="menu-arrow"></i>
             </a>

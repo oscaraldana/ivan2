@@ -1127,7 +1127,7 @@ class cliente {
             
             $conex = WolfConex::conex();
         
-            $comision = ["", 1 => 5, 2 => 10, 3 => 20, 4 => 50];
+            $comision = ["", 1 => 5, 2 => 6, 3 => 7, 4 => 50];
             
             $sql = "select * from paquetes where paquete_id = ".$_POST["idPaquete"];
             $result = mysqli_query($conex->getLinkConnect(), $sql);
@@ -1177,7 +1177,7 @@ class cliente {
                 $select  .= "</select></label>";
 
                 $body = '<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#home">' .
-                                          '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
+                                          '<!--<i class="fa fa-bitcoin"></i> Bitcoin</a></li> -->'.
                                           ' <li><a data-toggle="tab" href="#menu1"> <img src="img/modulos/logo-bancolombia-Copiar.jpg" height="15px">Bancolombia</a></li> '.
                                           '<!-- <li><a data-toggle="tab" href="#reinvertirTab"><i class="fa fa-exchange"></i> Reinvertir</a></li> -->'.
                                           '</ul>'.
@@ -1212,20 +1212,22 @@ class cliente {
                                 $respuesta["respuesta"] = true;
                                 $respuesta["title"] = "<img src='img/modulos/bronce.png' height='80px'> &nbsp;Comprar un paquete tipo Bronce";
                                 
-                                $body = '<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#home">' .
-                                          '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
+                                $body = '<ul class="nav nav-tabs"> <!-- <li class="active"><a data-toggle="tab" href="#home">' .
+                                          '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> -->'.
                                           ' <li><a data-toggle="tab" href="#menu1"> <img src="img/modulos/logo-bancolombia-Copiar.jpg" height="15px">Bancolombia</a></li> '.
                                           '<!-- <li><a data-toggle="tab" href="#reinvertirTab"><i class="fa fa-exchange"></i> Reinvertir</a></li> -->'.
                                           '</ul>'.
-                                          '<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"] - $comision[$row["paquete_id"]]), 0, "", ".").' </b> '.
+                                          /*'<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"] - $comision[$row["paquete_id"]]), 0, "", ".").' </b> '.
                                           ' hasta <b>COP $ '.number_format(6000000, 0, "", ".").' </b>a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$300.000 - COP$6.000.000" min="300000" max="5999999"></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
-
-                                          '<div id="menu1" class="tab-pane fade"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
+*/
+                                          '<div class="tab-content"><div id="menu1" class="tab-pane fade in active"><p>'.  
+                                          //'<div id="menu1" class="tab-pane fade"><p>'.
+                                          'Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
                                           ' , desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> '.
                                           ' hasta <b>COP $ '.number_format(6000000, 0, "", ".").' </b> a la siguiente cuenta de ahorros de Bancolombia. Tambien puedes realizar una transferencia desde tu app movil de Bancolombia por medio del siguiente codigo QR: </p><br><div style="text-align:center;">'.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>Ahorros xxxx-xxxxxxx</b></div> <br>'.
@@ -1252,20 +1254,23 @@ class cliente {
                                 $respuesta["respuesta"] = true;
                                 $respuesta["title"] = "<img src='img/modulos/silver.png' height='80px'> &nbsp;Comprar un paquete tipo Plata";
                                 
-                                $body = '<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#home">' .
-                                          '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
+                                $body = '<ul class="nav nav-tabs">'.
+                                        //'<li class="active"><a data-toggle="tab" href="#home">' .
+                                        //  '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
                                           ' <li><a data-toggle="tab" href="#menu1"> <img src="img/modulos/logo-bancolombia-Copiar.jpg" height="15px">Bancolombia</a></li> '.
                                           '<!-- <li><a data-toggle="tab" href="#reinvertirTab"><i class="fa fa-exchange"></i> Reinvertir</a></li> -->'.
                                           '</ul>'.
-                                          '<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> '.
+                                          /*'<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> '.
                                           ' hasta <b>COP $ '.number_format(15000000, 0, "", ".").' </b> a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$6.000.000 - COP$15.000.000" min="6000000" max="14999999"></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
-
-                                          '<div id="menu1" class="tab-pane fade"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
+*/
+                                          //'<div id="menu1" class="tab-pane fade"><p>'
+                                          '<div class="tab-content"><div id="menu1" class="tab-pane fade in active"><p>'.
+                                          'Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
                                           ' , desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> '.
                                           ' hasta <b>COP $ '.number_format(15000000, 0, "", ".").' </b> a la siguiente cuenta de ahorros de Bancolombia. Tambien puedes realizar una transferencia desde tu app movil de Bancolombia por medio del siguiente codigo QR: </p><br><div style="text-align:center;">'.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>Ahorros xxxx-xxxxxxx</b></div> <br>'.
@@ -1292,20 +1297,23 @@ class cliente {
                                 $respuesta["respuesta"] = true;
                                 $respuesta["title"] = "<img src='img/modulos/gold.png' height='80px'> &nbsp;Comprar un paquete tipo Oro";
                                 
-                                $body = '<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#home">' .
-                                          '<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
+                                $body = '<ul class="nav nav-tabs">'.
+                                          //'<li class="active"><a data-toggle="tab" href="#home">' .
+                                          //'<i class="fa fa-bitcoin"></i> Bitcoin</a></li> '.
                                           ' <li><a data-toggle="tab" href="#menu1"> <img src="img/modulos/logo-bancolombia-Copiar.jpg" height="15px">Bancolombia</a></li> '.
                                           '<!-- <li><a data-toggle="tab" href="#reinvertirTab"><i class="fa fa-exchange"></i> Reinvertir</a></li> -->'.
                                           '</ul>'.
-                                          '<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> en adelante '.
+                                          /*'<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> envia la cantidad de a invertir, desde <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b> en adelante '.
                                           '  a la siguiente direccion de Bitcoin &oacute; escanea el codigo QR desde un movil: <br><div style="text-align:center;"> '.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>1HZ2wMzf7BPKyoKnw3Y9RAnxJCM9BJMoEK</b></div> <br>'.
                                           'Por favor indique la cantidad a invertir.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="number" name="transaccionBitCoinValue" id="transaccionBitCoinValue" placeholder="COP$15.000.000 o mas" ></div>'.
                                           'Despues de efectuar el pago ingrese su direccion bitcoin de pago y haz click en confirmar pago.   <div style="text-align:center;">'.
                                           '<input class="form-control round-input" size="20" type="text" name="transaccionBitCoin" id="transaccionBitCoin"></div></p></div>'.
-
-                                          '<div id="menu1" class="tab-pane fade"><p>Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
+*/
+                                          '<div class="tab-content"><div id="home" class="tab-pane fade in active"><p>'.
+                                          //'<div id="menu1" class="tab-pane fade"><p>'.
+                                          'Para comprar el paquete <b>'.$row["nombre"].'</b> consigna la cantidad a invertir '.
                                           ' , de <b>COP $ '.number_format(($row["valor"]), 0, "", ".").' </b>  en adelante'.
                                           '  a la siguiente cuenta de ahorros de Bancolombia. Tambien puedes realizar una transferencia desde tu app movil de Bancolombia por medio del siguiente codigo QR: </p><br><div style="text-align:center;">'.
                                           '<img src="img/modulos/qr.png" width="150px;"><br><b>Ahorros xxxx-xxxxxxx</b></div> <br>'.

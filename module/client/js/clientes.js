@@ -418,13 +418,13 @@ function comprarPaquete(id){
 function aceptarCompra(id){
     
     
-    if ($('#transaccionBitCoin').val().trim() !== '' || $('#transaccionBanco').val().trim() !== '' || $("#selectforpag").val() > 0 ) {
+    if ( /*$('#transaccionBitCoin').val().trim() !== '' ||*/ $('#transaccionBanco').val().trim() !== '' || $("#selectforpag").val() > 0 ) {
     
         
         
         
-        if ( ($('#transaccionBitCoin').val().trim() !== '' && $('#transaccionBanco').val().trim() !== '' ) ||
-             ($('#transaccionBitCoin').val().trim() !== '' && $("#selectforpag").val() > 0 ) ||   
+        if ( /*( $('#transaccionBitCoin').val().trim() !== '' && $('#transaccionBanco').val().trim() !== '' ) ||
+             ( $('#transaccionBitCoin').val().trim() !== '' && $("#selectforpag").val() > 0 ) ||   */
              ($('#transaccionBanco').val().trim() !== '' && $("#selectforpag").val() > 0 )    
         ){
             swal("Seleccione solamente una forma de pago.");
@@ -471,7 +471,7 @@ function aceptarCompra(id){
                 var valorRangoNull = false;
                 var valorEnRango = true;
                 var msgValuePaq = "";
-                if ( $('#transaccionBitCoin').val().trim() !== '' ){
+                /*if ( $('#transaccionBitCoin').val().trim() !== '' ){
                 
                     if ( $('#transaccionBitCoinValue').val().trim() == '' ){
                         valorRangoNull = true;
@@ -495,7 +495,7 @@ function aceptarCompra(id){
                                     }
                                     break;
                     }
-                }
+                }*/
                 
                 if ( $('#transaccionBanco').val().trim() !== '' ){
                     if ( $('#transaccionBancoValue').val().trim() == '' ){
@@ -637,16 +637,19 @@ function formularioCuentasBancarias(id){
     
     $("#modal-title").html(titulo);
     //$('#form_modal').attr('onsubmit', 'editarPerfil(); return false;');
-    $("#modal-body").html('<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#home">' +
-                                      '<i class="fa fa-bitcoin"></i> Cuenta Bitcoin</a></li><li><a data-toggle="tab" href="#menu1"><i class="fa fa-university"></i> Cuenta Bancaria</a></li>'+
+    $("#modal-body").html('<ul class="nav nav-tabs">' + 
+                                      //'<li class="active"><a data-toggle="tab" href="#home">' +
+                                      //'<i class="fa fa-bitcoin"></i> Cuenta Bitcoin</a></li>' +
+                                      '<li class="active"><a data-toggle="tab" href="#menu1"><i class="fa fa-university"></i> Cuenta Bancaria</a></li>'+
                                       '</ul>'+
-                                      '<div class="tab-content"><div id="home" class="tab-pane fade in active"><p> '+
+                                      /*'<div class="tab-content"><div id="home" class="tab-pane fade in active"><p> '+
                                       '<br>'+
                                       'Digite el ID o direccion de Bitcoin, si desea que sus ganancias se reflejen por medio de esta forma de pago.'+
                                       "<br><br><label for='direccionBitcoin'>Direccion Bitcoin: </label><input type='text' value='"+bitcoin+"' class='form-control' placeholder='Direccion Bitcoin' name='direccionBitcoin' id='direccionBitcoin'>"+
-                                      '</p></div>'+
+                                      '</p></div>'+*/
                                       
-                                      '<div id="menu1" class="tab-pane fade">'+
+                                      //'<div id="menu1" class="tab-content">'+
+                                      '<div class="tab-content"><div id="home1" class="tab-pane fade in active"><p> '+
                                       '<br>'+
                                       'Digite la informaci&oacute;n de su cuenta Bancaria'+
                                       "<br><br><label for='banco'>Banco: <select class='form-control' id = 'nombreBanco' name = 'nombreBanco'>" +
@@ -657,7 +660,7 @@ function formularioCuentasBancarias(id){
                                         "</label>"+
                                       "<label for='nocuenta'>N&uacute;mero de Cuenta: </label><input type='text' value='"+numerocuenta+"' class='form-control' placeholder='Numero Cuenta' name='nocuenta' id='nocuenta'>"+
                                       "<label for='anombre'>Nombre Titular: </label><input type='text' value='"+titularcuenta+"' class='form-control' placeholder='Nombre Titular' name='anombre' id='anombre'>"+
-                                      '</div>'+
+                                      '</p></div>'+
                                       '</div>    </div></div>' 
                           
                          );
