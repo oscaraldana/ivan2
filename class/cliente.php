@@ -1462,9 +1462,9 @@ class cliente {
                 if ( count($this->vacaciones) > 0 ) {
                     foreach ( $this->vacaciones as $fv ) {
                         if ( ($timed >= $fv[0] && $timed <= $fv[1]) ){
-                            $cad .= '<tr><td>'.$diasSemana[intval(date("N", $timed))].' '.date("d", $timed).' de '.$mesesAno[intval(date("m", $timed))].' de '.date("Y", $timed).' <font color="white">(VACACIONES)</font></td><td align="right">USD$ 0</td>';
+                            $cad .= '<tr><td>'.$diasSemana[intval(date("N", $timed))].' '.date("d", $timed).' de '.$mesesAno[intval(date("m", $timed))].' de '.date("Y", $timed).' <font color="white">(VACACIONES)</font></td><td align="right"> $ 0</td>';
                         } else {
-                $cad .= '<tr><td>'.$diasSemana[intval(date("N", $timed))].' '.date("d", $timed).' de '.$mesesAno[intval(date("m", $timed))].' de '.date("Y", $timed).'</td><td align="right">USD$ '.$valorDia.' </td>';
+                $cad .= '<tr><td>'.$diasSemana[intval(date("N", $timed))].' '.date("d", $timed).' de '.$mesesAno[intval(date("m", $timed))].' de '.date("Y", $timed).'</td><td align="right"> $ '."".number_format($valorDia, 0, ",", ".")."".' </td>';
                         }
                     }
                 } else {

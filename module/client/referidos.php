@@ -12,8 +12,8 @@ $cliente->consultarReferidos();
 ?>
 <link rel="stylesheet" href="../client/css/hierarchy-view.css">
 <link rel="stylesheet" href="../client/css/main.css">
-<style>body{ background-color: #303840 }</style>
-<!--Management Hierarchy-->
+<!--<style>body{ background-color: #303840 }</style>
+Management Hierarchy-->
     <section class="management-hierarchy">
         
         <h1> Mis Referidos</h1>

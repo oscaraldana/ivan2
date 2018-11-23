@@ -25,7 +25,9 @@ if( !$cuentas ){ ?>
         <br>
         <?php if ( $cuentas[0]["banco"] != "" ) { ?>
         <table class="table table-hover">
-            <caption><b>BANCO</b></caption>
+        <tr><th colspan="4" style="text-align: center;">
+                <b><i>BANCO</i></b>
+        </th></tr>
             <tr>
                 <th scope="row">Entidad</th>
                 <th scope="row">Tipo Cuenta</th>
@@ -44,7 +46,9 @@ if( !$cuentas ){ ?>
 <br>
         <?php if ( $cuentas[0]["bitcoin"] != "" ) { ?>
         <table class="table table-hover">
-            <caption><b>BITCOIN</b></caption>
+            <tr><th colspan="4" style="text-align: center;">
+                <b><i>BITCOIN</i></b>
+        </th></tr>
             <tr>
                 <th scope="row">Numero</th>
               </tr>

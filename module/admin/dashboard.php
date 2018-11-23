@@ -34,12 +34,12 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="../client/css/fullcalendar.css">
   <link href="../client/css/widgets.css" rel="stylesheet">
-  <link href="../client/css/style.css" rel="stylesheet">
   <link href="../client/css/style-responsive.css" rel="stylesheet" />
   <link href="../client/css/xcharts.min.css" rel=" stylesheet">
   <link href="../client/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
   <link href="../client/css/bootstrap-select.min.css" rel="stylesheet">
   <link href="../../css/datatables.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../../images/lion.ico"/>
   <style>
            
  .reloj{
@@ -81,12 +81,12 @@ span.exmple:hover{
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
-          <img src="images/logo.svg" alt="logo" />
+          <a class="navbar-brand brand-logo" href="../client/">
+            <img src="../../images/logo2.png" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <!--<a class="navbar-brand brand-logo-mini" href="index.html">
           <img src="images/logo-mini.svg" alt="logo" />
-        </a>
+        </a>-->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <!-- <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
@@ -257,7 +257,7 @@ span.exmple:hover{
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item nav-profile">
+          <!-- <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
@@ -273,9 +273,9 @@ span.exmple:hover{
               </div>
               <!--<button class="btn btn-success btn-block">New Project
                 <i class="mdi mdi-plus"></i>
-              </button> -->
+              </button> 
             </div>
-          </li>
+          </li>-->
           <li class="nav-item">
             <a class="nav-link" href="../admin/">
               <i class="menu-icon mdi mdi-home"></i>
@@ -284,7 +284,7 @@ span.exmple:hover{
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-bitcoin"></i>
+              <i class="menu-icon mdi mdi-wrench"></i>
               <span class="menu-title">Administrar</span>
               <i class="menu-arrow"></i>
             </a>
@@ -301,13 +301,13 @@ span.exmple:hover{
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="javascript:;" onclick="cargarHtml('../client/referidos');">
-              <i class="menu-icon mdi mdi-numeric"></i>
+              <i class="menu-icon mdi mdi-account-multiple-plus"></i>
               <span class="menu-title">Ver Clientes</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="../client">
-              <i class="menu-icon mdi mdi-account-multiple-plus"></i>
+              <i class="menu-icon mdi mdi-account-box"></i>
               <span class="menu-title">Modulo Clientes</span>
             </a>
           </li>
@@ -324,22 +324,22 @@ span.exmple:hover{
         
         ?>
       <!-- partial -->
-      <div  id="homeContent" name="homeContent">
+      <div  id="homeContent" name="homeContent" class="main-panel">
       <div class="row tile_count" >
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Clientes</span>
+              <span class="count_top"><i class="menu-icon mdi mdi-account-switch"></i> Total Clientes</span>
               <div class="count"><?= $cliente->totales["clientes"]?></div>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-dollar"></i> Paquetes Vigentes</span>
+              <span class="count_top"><i class="menu-icon mdi mdi-check-circle"></i> Paquetes Vigentes</span>
               <div class="count"><?= $cliente->totales["paq_vigentes"]?></div>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Paquetes Pendientes</span>
+              <span class="count_top"><i class="menu-icon mdi mdi-clock-alert"></i> Paquetes Pendientes</span>
               <div class="count green"><?= $cliente->totales["paq_pendientes"]?></div>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Retiros Pendientes</span>
+              <span class="count_top"><i class="menu-icon mdi mdi-clock-alert"></i> Retiros Pendientes</span>
               <div class="count"><?= $cliente->totales["ret_pendientes"]?></div>
             </div>
             
@@ -355,7 +355,7 @@ span.exmple:hover{
       
       
       
-           <br>
+           <br><br><br><br>&nbsp;
           <div class="row" style="text-align: center;"> 
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
@@ -388,11 +388,11 @@ span.exmple:hover{
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content" style="background-color: #262b2d;">
+    <div class="modal-content" >
         <form  id="form_modal" name="form_modal" onsubmit="return false;">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" name="modal-title" id="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body" id="modal-body" name="modal-body">
         <p>Some text in the modal.</p>

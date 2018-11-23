@@ -20,10 +20,10 @@
       <!-- Bootstrap CSS -->
   <link href="../client/css/bootstrap.min.css" rel="stylesheet">
   <link href="../client/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+
+  
+  
   <style>
-         
-           
-           
  .reloj{
  font-family: sans-serif;
  color: #fff;
@@ -63,12 +63,12 @@ span.exmple:hover{
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
-          <img src="images/logo.svg" alt="logo" />
+          <a class="navbar-brand brand-logo" href="../client/">
+            <img src="../../images/logo2.png" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <!--<a class="navbar-brand brand-logo-mini" href="index.html">
           <img src="images/logo-mini.svg" alt="logo" />
-        </a>
+        </a>-->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <!-- <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
@@ -628,8 +628,9 @@ span.exmple:hover{
     <div class="modal-content" >
         <form  id="form_modal" name="form_modal" onsubmit="return false;">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" name="modal-title" id="modal-title">Modal Header</h4>
+          <button type="button" class="close" data-dismiss="modal" style="float: right;">&times;</button>
+
       </div>
       <div class="modal-body" id="modal-body" name="modal-body">
         <p>Some text in the modal.</p>

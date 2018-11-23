@@ -1,5 +1,28 @@
 <?php
+echo "<style>"
+. '.customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+.customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.customers tr:nth-child(even){background-color: #fef7ef;}
+
+.customers tr:hover {background-color: #555;}
+
+.customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}'
+. "</style>";
     $cliente = new cliente();
     $cliente->consultarDatosParaRetiro();
     $cliente->consultarDatosParaRetiroReferidos();
@@ -39,46 +62,46 @@
     
     
     $tabla2 = "";
-    $tabla = '<table class="table table-hover">
+    $tabla = '<div style="overflow-x:auto;"><table class="table table-hover customers">
                     <tr>
-                        <th scope="row">Diponible para retirar por inversion:</th>
-                        <td>$ '.$cliente->dispoParaRetiro.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Diponible para retirar por inversion:</span></td>
+                        <td align="right"><span style="margin-right:30px;">$ '.number_format($cliente->dispoParaRetiro, 0, ',', '.').'</span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Comision de retiro:</th>
-                        <td>$ '.$vlrComision.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Comision de retiro:</span></td>
+                        <td align="right"><span style="margin-right:30px;">$ '.number_format($vlrComision, 0, ',', '.').'</span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Total a Retirar:</th>
-                        <td>$ '.$vlrRetirar.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Total a Retirar:</span></td>
+                        <td align="right"><span style="margin-right:30px;"><b>$ '.number_format($vlrRetirar, 0, ',', '.').'</b></span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Metodo de pago:</th>
-                        <td>';
+                        <td scope="row"><span style="margin-left:30px;">Metodo de pago:</span></td>
+                        <td align="right">';
     
     
     
-        $tabla1 = '<table class="table table-hover">
+        $tabla1 = '<div style="overflow-x:auto;"><table class="table table-hover customers">
                     <tr>
-                        <th scope="row">Diponible para retirar por referidos:</th>
-                        <td>$ '.$cliente->valorPendientePorReferidos.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Diponible para retirar por referidos:</span></td>
+                        <td align="right"><span style="margin-right:30px;">$ '.number_format($cliente->valorPendientePorReferidos, 0, ',', '.').'</span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Comision de retiro:</th>
-                        <td>$ '.$vlrComRef.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Comision de retiro:</span></td>
+                        <td align="right"><span style="margin-right:30px;">$ '.number_format($vlrComRef, 0, ',', '.').'</span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Total a Retirar:</th>
-                        <td>$ '.$vlrRetRef.'</td>
+                        <td scope="row"><span style="margin-left:30px;">Total a Retirar:</span></td>
+                        <td align="right"><span style="margin-right:30px;">$ '.number_format($vlrRetRef, 0, ',', '.').'</span></td>
                       </tr>
                       <tr>
-                        <th scope="row">Metodo de pago:</th>
-                        <td>';
+                        <td scope="row"><span style="margin-left:30px;">Metodo de pago:</span></td>
+                        <td align="right">';
 
     
     if ( !$cuentas ) { 
-        $tabla .= "<p class='text-danger'><b>?</b></p>";
-        $tabla1 .= "<p class='text-danger'><b>?</b></p>";
+        $tabla .= "<p class='text-danger' style='margin-right:30px;'><b>?</b></p>";
+        $tabla1 .= "<p class='text-danger' style='margin-right:30px;'><b>?</b></p>";
     } else {
         $tabla .= '<select name="metodoPagoRetiro" id="metodoPagoRetiro" class="form-control"><option value="">Seleccione Metodo de Pago</option>';
         $tabla1 .= '<select name="metodoPagoRetiroRef" id="metodoPagoRetiroRef" class="form-control"><option value="">Seleccione Metodo de Pago</option>';
@@ -99,11 +122,11 @@
     $tabla .= '       </td>
                   </tr>
 
-                </table>';
+                </table></div>';
     $tabla1 .= '       </td>
                   </tr>
 
-                </table>';
+                </table></div>';
     
     
     
