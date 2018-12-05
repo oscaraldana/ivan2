@@ -17,10 +17,17 @@ License URL: http://creativecommons.org/licenses/by/3.0
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Bootstrap Website Templates">
+    <META NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
+    <META NAME="AUTHOR" CONTENT="ivan contreras">
+    <META NAME="REPLY-TO" CONTENT="oealdana@gmail.com">
+    <LINK REV="made" href="mailto:oealdana@gmail.com">
+    <META NAME="DESCRIPTION" CONTENT="Sitio de inversion con ganancias mensuales my rentables">
+    <META NAME="KEYWORDS" CONTENT="alianza,nuevo,mundo,trading,wolf,bitcoin,dolares,ganancias,rentabilidad">
+    <META NAME="Resource-type" CONTENT="Homepage">
+    <META NAME="DateCreated" CONTENT="Mon, 30 April 2018 00:00:00 GMT+1">
+    <META NAME="robots" content="ALL">
 
+    <link rel="icon" type="image/png" href="images/logo3.ico"/>
     <title>Alianza Nuevo Mundo</title>
     
     <!-- Bootstrap Core CSS -->
@@ -55,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href=""> <img src="images/lion2.png" class="img-responsive"> </a>
+                <a class="navbar-brand page-scroll" href=""> <img src="images/lion3.png" class="img-responsive"> </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0
 <section id="about" class="bwt-about text-left">
 <div class="container">
 <div class="row">
-<div class="col-md-6"><img src="images/bitcoin-640.png" class="img-responsive" alt=""></div>
+<div class="col-md-6"><img src="images/bitcoin-641.png" class="img-responsive" alt=""></div>
 <div class="col-md-6">
 <h1 class="bwt-section-title text-uppercase">Quienes Somos</h1>
 <hr>
@@ -132,8 +139,8 @@ License URL: http://creativecommons.org/licenses/by/3.0
 <div class="row">
 <div class="col-md-6">
 <div class="bdr">
-<h2>Buy Bitcoin</h2>
-<div class="image"><img src="images/btc.png" class="img-responsive" alt=""></div>
+<h2>Buy </h2>
+<div class="image"><!-- <img src="images/btc.png" class="img-responsive" alt=""> --> </div>
 <p>Buy Bitcoin (USD)<br>
 $100-$500 = Rs80/USD<br>
 $500-$2000 = Rs75/USD</p>
@@ -142,12 +149,12 @@ $500-$2000 = Rs75/USD</p>
 </div>
 <div class="col-md-6">
 <div class="bdr">
-<h2>Buy BTC-e</h2>
-<div class="image"><img src="images/btc.jpg" class="img-responsive" alt=""></div>
-<p>Buy Lite Coin (USD)<br>
+<h2>Sell</h2>
+<div class="image"><!-- <img src="images/btc.jpg" class="img-responsive" alt=""> --></div>
+<p>Sell  (USD)<br>
 $100-$500 = Rs84/USD<br>
 $500-$2000 = Rs79/USD</p>
-<a href="#">Buy Now!</a>
+<a href="#">Sell Now!</a>
 </div>
 </div>
 </div>

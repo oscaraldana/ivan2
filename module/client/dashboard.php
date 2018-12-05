@@ -16,7 +16,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="icon" type="image/png" href="../../images/lion.ico"/>
+  <link rel="icon" type="image/png" href="../../images/logo3.ico"/>
       <!-- Bootstrap CSS -->
   <link href="../client/css/bootstrap.min.css" rel="stylesheet">
   <link href="../client/css/jquery-ui-1.10.4.min.css" rel="stylesheet">

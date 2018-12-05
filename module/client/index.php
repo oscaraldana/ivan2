@@ -55,7 +55,7 @@ if ( !isset($_SESSION["clientId"]) || ( isset($_SESSION["clientId"]) && empty($_
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg); width: 100%; height: auto; background-size: 100% 100%;">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.png); width: 100%; height: auto; background-size: 100% 100%;">
                                     	<!--<span class="login100-form-title-1">
 						Ingresar a mi cuenta
 					</span>-->
