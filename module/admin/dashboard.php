@@ -41,7 +41,22 @@
   <link href="../../css/datatables.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../../images/logo3.ico"/>
   <style>
-           
+          
+       body::after {
+             content: "";
+             background: url(../../images/header-bg2.jpg);
+             background-repeat:no-repeat;
+             background-size: cover;
+             opacity: 0.2;
+             top: 0;
+             left: 0;
+             bottom: 0;
+             right: 0;
+             position: absolute;
+             z-index: -1;   
+           }  
+      
+      
  .reloj{
  font-family: sans-serif;
  color: #fff;

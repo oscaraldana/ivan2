@@ -51,7 +51,7 @@ p.simple-card {
   color: #DE5454; }
 
 .management-hierarchy {
-  background-color: #000000; }
+  /*background-color: #000000;*/ }
   .management-hierarchy > h1 {
     color: #FFF; }
   .management-hierarchy .person {
